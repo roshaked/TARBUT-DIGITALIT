@@ -118,27 +118,133 @@ const units = [
 ];
 
 const flashcards = [
-  ["שינוי אונטולוגי", "שינוי בשאלה מה פירוש להיות אדם: הקיום, הזהות והפעולה האנושית מתעצבים גם דרך רשתות מידע."],
-  ["נוכחות רשת", "הקיום החברתי והזהותי של אדם במרחב הדיגיטלי כחלק בלתי נפרד מההוויה."],
-  ["דטרמיניזם טכנולוגי", "גישה שלפיה הטכנולוגיה היא כוח מרכזי שמכתיב שינוי חברתי ותרבותי."],
-  ["הבניה חברתית של טכנולוגיה", "גישה שלפיה חברה, תרבות, פוליטיקה וכלכלה מעצבות את הטכנולוגיה ואת שימושיה."],
-  ["אקולוגיית מדיה", "בחינת המדיום כסביבה שמעצבת תפיסה, תרבות, יחסים ודרכי פעולה."],
-  ["ניידות וצמידות", "הסלולר נישא לכל מקום ונצמד לגוף, ולכן נעשה חלק מתמיד מחיי היום-יום."],
-  ["חוויה מפוצלת", "במחקר הסלולר: מצד אחד תחושת שקט וחופש בניתוק, מצד שני חרדה, החמצה וריחוק חברתי."],
-  ["פניקה מוסרית", "חרדה חברתית סביב תופעה שנתפסת כאיום על ערכים וסדר חברתי."],
-  ["כלכלת תשומת הלב", "מודל שבו קשב וזמן משתמשים נעשים משאב כלכלי מרכזי."],
-  ["Nudge", "דחיפה קלה בעיצוב שמכוונת התנהגות בלי לכפות אותה ישירות."],
-  ["Time Well Spent", "מודל עיצוב שמבקש להתאים טכנולוגיה לערכים ולזמן משמעותי של המשתמש."],
-  ["TLT", "Technology that Liberates us from Technology: טכנולוגיה שתעזור להשתחרר מתלות בטכנולוגיה."],
-  ["גודמן - מוניטיזציה", "גודמן מציע להפוך את הגנת הקשב להזדמנות כלכלית: לא להרוויח מהסחת דעת, אלא משירותים שמחזירים לאדם שליטה בזמן ובקשב."],
-  ["UGC", "תוכן משתמשים: פומבי, יצירתי במידה מסוימת, ונוצר מחוץ למסגרת מקצועית מסורתית."],
-  ["אפקט הרשת", "ערך שירות גדל ככל שמספר המשתמשים בו גדל."],
-  ["הזנב הארוך", "מודל כלכלי שבו מכירות רבות של מוצרי נישה יכולות להשתוות או לעלות על מכירות הלהיטים."],
-  ["סוכן הפעולה", "הגורם שמניע, מכוון או מבצע את הפעולה: אדם, מחשב או AI."],
-  ["דיסאינפורמציה", "מידע שקרי או מטעה שמופץ בכוונה מודעת להזיק או להשפיע."],
-  ["מיסאינפורמציה", "מידע שגוי שמופץ בלי כוונת הטעיה מודעת."],
-  ["היוריסטיקת מכונה", "נטייה לסמוך על מכונה משום שהיא נתפסת כאובייקטיבית ונייטרלית."],
-  ["היוריסטיקת העדר", "נטייה להאמין למשהו כי הרבה אנשים אחרים מאמינים בו."],
+  {
+    term: "שינוי אונטולוגי",
+    answer: "שינוי בשאלה מה פירוש להיות אדם: הקיום, הזהות והפעולה האנושית מתעצבים גם דרך רשתות מידע.",
+    slideUrl: "public/slides/lesson1-ontological-change.png",
+    slideLabel: "שיעור 1, שקף 13",
+  },
+  {
+    term: "נוכחות רשת",
+    answer: "הקיום החברתי והזהותי של אדם במרחב הדיגיטלי כחלק בלתי נפרד מההוויה.",
+    slideUrl: "public/slides/lesson1-web-presence.png",
+    slideLabel: "שיעור 1, שקף 11",
+  },
+  {
+    term: "דטרמיניזם טכנולוגי",
+    answer: "גישה שלפיה הטכנולוגיה היא כוח מרכזי שמכתיב שינוי חברתי ותרבותי.",
+    slideUrl: "public/slides/lesson1-tech-determinism.png",
+    slideLabel: "שיעור 1, שקף 16",
+  },
+  {
+    term: "הבניה חברתית של טכנולוגיה",
+    answer: "גישה שלפיה חברה, תרבות, פוליטיקה וכלכלה מעצבות את הטכנולוגיה ואת שימושיה.",
+    slideUrl: "public/slides/lesson1-social-construction.png",
+    slideLabel: "שיעור 1, שקף 15",
+  },
+  {
+    term: "אקולוגיית מדיה",
+    answer: "בחינת המדיום כסביבה שמעצבת תפיסה, תרבות, יחסים ודרכי פעולה.",
+    slideUrl: "public/slides/lesson2-media-ecology.png",
+    slideLabel: "שיעור 2, שקף 6",
+  },
+  {
+    term: "ניידות וצמידות",
+    answer: "הסלולר נישא לכל מקום ונצמד לגוף, ולכן נעשה חלק מתמיד מחיי היום-יום.",
+    slideUrl: "public/slides/lesson23-mobile-portable.png",
+    slideLabel: "שיעורים 2-3, שקף 12",
+  },
+  {
+    term: "חוויה מפוצלת",
+    answer: "במחקר הסלולר: מצד אחד תחושת שקט וחופש בניתוק, מצד שני חרדה, החמצה וריחוק חברתי.",
+    slideUrl: "public/slides/lesson23-split-experience.png",
+    slideLabel: "שיעורים 2-3, שקף 25",
+  },
+  {
+    term: "פניקה מוסרית",
+    answer: "חרדה חברתית סביב תופעה שנתפסת כאיום על ערכים וסדר חברתי.",
+    slideUrl: "public/slides/lesson23-moral-panic.png",
+    slideLabel: "שיעורים 2-3, שקף 28",
+  },
+  {
+    term: "כלכלת תשומת הלב",
+    answer: "מודל שבו קשב וזמן משתמשים נעשים משאב כלכלי מרכזי.",
+    slideUrl: "public/slides/lesson56-attention-economy.png",
+    slideLabel: "שיעורים 5-6, שקף 6",
+  },
+  {
+    term: "Nudge",
+    answer: "דחיפה קלה בעיצוב שמכוונת התנהגות בלי לכפות אותה ישירות.",
+    slideUrl: "public/slides/lesson56-nudge-design.png",
+    slideLabel: "שיעורים 5-6, שקף 6",
+  },
+  {
+    term: "Time Well Spent",
+    answer: "מודל עיצוב שמבקש להתאים טכנולוגיה לערכים ולזמן משמעותי של המשתמש.",
+    slideUrl: "public/slides/lesson56-tws.png",
+    slideLabel: "שיעורים 5-6, שקף 16",
+  },
+  {
+    term: "TLT",
+    answer: "Technology that Liberates us from Technology: טכנולוגיה שתעזור להשתחרר מתלות בטכנולוגיה.",
+    slideUrl: "public/slides/lesson56-tlt.png",
+    slideLabel: "שיעורים 5-6, שקף 20",
+  },
+  {
+    term: "גודמן - מוניטיזציה",
+    answer:
+      "גודמן מציע להפוך את הגנת הקשב להזדמנות כלכלית: לא להרוויח מהסחת דעת, אלא משירותים שמחזירים לאדם שליטה בזמן ובקשב.",
+    slideUrl: "public/slides/lesson56-monetization.png",
+    slideLabel: "שיעורים 5-6, שקף 21",
+  },
+  {
+    term: "UGC",
+    answer: "תוכן משתמשים: פומבי, יצירתי במידה מסוימת, ונוצר מחוץ למסגרת מקצועית מסורתית.",
+    slideUrl: "public/slides/lesson78-ugc.png",
+    slideLabel: "שיעורים 7-8, שקף 13",
+  },
+  {
+    term: "אפקט הרשת",
+    answer: "ערך שירות גדל ככל שמספר המשתמשים בו גדל.",
+    slideUrl: "public/slides/lesson9-network-effect.png",
+    slideLabel: "שיעור 9, שקף 13",
+  },
+  {
+    term: "הזנב הארוך",
+    answer: "מודל כלכלי שבו מכירות רבות של מוצרי נישה יכולות להשתוות או לעלות על מכירות הלהיטים.",
+    slideUrl: "public/slides/lesson9-long-tail.png",
+    slideLabel: "שיעור 9, שקף 14",
+  },
+  {
+    term: "סוכן הפעולה",
+    answer: "הגורם שמניע, מכוון או מבצע את הפעולה: אדם, מחשב או AI.",
+    slideUrl: "public/slides/lesson10-agency.png",
+    slideLabel: "שיעור 10, שקף 7",
+  },
+  {
+    term: "דיסאינפורמציה",
+    answer: "מידע שקרי או מטעה שמופץ בכוונה מודעת להזיק או להשפיע.",
+    slideUrl: "public/slides/lesson11-disinformation.png",
+    slideLabel: "שיעור 11, שקף 11",
+  },
+  {
+    term: "מיסאינפורמציה",
+    answer: "מידע שגוי שמופץ בלי כוונת הטעיה מודעת.",
+    slideUrl: "public/slides/lesson11-misinformation.png",
+    slideLabel: "שיעור 11, שקף 11",
+  },
+  {
+    term: "היוריסטיקת מכונה",
+    answer: "נטייה לסמוך על מכונה משום שהיא נתפסת כאובייקטיבית ונייטרלית.",
+    slideUrl: "public/slides/lesson11-machine-heuristic.png",
+    slideLabel: "שיעור 11, שקף 28",
+  },
+  {
+    term: "היוריסטיקת העדר",
+    answer: "נטייה להאמין למשהו כי הרבה אנשים אחרים מאמינים בו.",
+    slideUrl: "public/slides/lesson11-bandwagon-heuristic.png",
+    slideLabel: "שיעור 11, שקף 28",
+  },
 ];
 
 const quiz = [
@@ -294,19 +400,22 @@ function renderUnits() {
 
 function renderFlashcards() {
   const cards = state.query
-    ? flashcards.filter(([term, answer]) => matchesQuery(`${term} ${answer}`))
+    ? flashcards.filter((card) => matchesQuery(`${card.term} ${card.answer} ${card.slideLabel}`))
     : flashcards;
   views.flashcards.innerHTML = cards.length
     ? `<div class="flash-grid">${cards
         .map(
-          ([term, answer], index) => `
+          (card, index) => `
           <article class="flashcard">
             <div>
               <span class="tag">כרטיסיה ${index + 1}</span>
-              <h3>${term}</h3>
-              <p class="flash-answer">${answer}</p>
+              <h3>${card.term}</h3>
+              <p class="flash-answer">${card.answer}</p>
             </div>
-            <button data-reveal>הצגת תשובה</button>
+            <div class="flash-actions">
+              <a class="slide-button" href="${card.slideUrl}" target="_blank" rel="noopener">${card.slideLabel}</a>
+              <button data-reveal>הצגת תשובה</button>
+            </div>
           </article>
         `
         )

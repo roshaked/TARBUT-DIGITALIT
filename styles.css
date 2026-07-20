@@ -323,6 +323,7 @@ h3 {
 }
 
 .flashcard button,
+.slide-button,
 .answer-button,
 .small-button {
   border: 0;
@@ -330,6 +331,26 @@ h3 {
   padding: 10px 12px;
   background: var(--blue);
   color: white;
+}
+
+.flash-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  align-items: center;
+}
+
+.slide-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  background: #eef6f4;
+  color: var(--blue);
+  border: 1px solid #c9ded9;
+  text-decoration: none;
+  font-weight: 700;
+  text-align: center;
 }
 
 .flash-answer {
