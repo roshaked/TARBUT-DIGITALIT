@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>תרבות דיגיטלית - אתר חזרה למבחן</title>
+    <meta
+      name="description"
+      content="אתר לימוד אינטראקטיבי לקורס תרבות דיגיטלית: מושגים, שאלות יישום, כרטיסיות וחוסרים לבדיקה."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="ניווט באתר">
+        <div class="brand">
+          <span class="brand-mark">ד</span>
+          <div>
+            <p>תרבות דיגיטלית</p>
+            <strong>חזרה למבחן</strong>
+          </div>
+        </div>
+        <nav class="nav-list">
+          <button class="nav-item active" data-view="dashboard">סקירה</button>
+          <button class="nav-item" data-view="units">יחידות לימוד</button>
+          <button class="nav-item" data-view="flashcards">כרטיסיות</button>
+          <button class="nav-item" data-view="practice">תרגול יישום</button>
+          <button class="nav-item" data-view="coverage">כיסוי וחוסרים</button>
+        </nav>
+        <div class="progress-card">
+          <span>התקדמות אישית</span>
+          <strong id="progressPercent">0%</strong>
+          <div class="progress-track"><div id="progressFill"></div></div>
+          <button id="resetProgress" class="ghost-button">איפוס</button>
+        </div>
+      </aside>
+
+      <main>
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">מבוסס על קבצי הדגשים לבחינה והחומרים שהועלו</p>
+            <h1>לומדים לפי מה שבאמת צפוי להיבחן</h1>
+          </div>
+          <label class="search-box">
+            <span>חיפוש</span>
+            <input id="searchInput" type="search" placeholder="מושג, שיעור או דוגמה..." />
+          </label>
+        </header>
+
+        <section id="dashboard" class="view active-view"></section>
+        <section id="units" class="view"></section>
+        <section id="flashcards" class="view"></section>
+        <section id="practice" class="view"></section>
+        <section id="coverage" class="view"></section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
