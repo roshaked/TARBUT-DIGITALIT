@@ -28,13 +28,27 @@ SLIDES = [
     ("lesson11-misinformation", BASE / "דיגיטלית-שיעור 11 דיסאינפורמציה-תשפו.pdf", 11),
     ("lesson11-machine-heuristic", BASE / "דיגיטלית-שיעור 11 דיסאינפורמציה-תשפו.pdf", 28),
     ("lesson11-bandwagon-heuristic", BASE / "דיגיטלית-שיעור 11 דיסאינפורמציה-תשפו.pdf", 28),
+    ("lesson11-fake-news", BASE / "דיגיטלית-שיעור 11 דיסאינפורמציה-תשפו.pdf", 11),
+    ("lesson10-cmc-hci", BASE / "דיגיטלית-שיעור10-תשפו.pdf", 4),
+    ("lesson10-digital-traces", BASE / "דיגיטלית-שיעור10-תשפו.pdf", 11),
+    ("lesson10-ai-roles", BASE / "דיגיטלית-שיעור10-תשפו.pdf", 11),
+    ("lesson11-paywall", BASE / "דיגיטלית-שיעור 11 דיסאינפורמציה-תשפו.pdf", 2),
+    ("lesson78-crowd-power", BASE / "שיעור 8-7 -מהפכת הווב 2.0.pdf", 12),
+    ("lesson78-crowdfunding", BASE / "שיעור 8-7 -מהפכת הווב 2.0.pdf", 34),
+    ("lesson9-sharing-economy", BASE / "שיעור_9-כלכלת שיתוף וזנב ארוך_תשפו.pdf", 4),
+    ("lesson23-digital-generations", BASE / "דיגיטלית-שיעורים 3-2-המהפכה הסלולרית-תשפו.pdf", 23),
+    ("lesson23-mobile-natives", BASE / "דיגיטלית-שיעורים 3-2-המהפכה הסלולרית-תשפו.pdf", 21),
+    ("lesson23-technological-utopia", BASE / "דיגיטלית-שיעורים 3-2-המהפכה הסלולרית-תשפו.pdf", 30),
+    ("lesson23-media-panic", BASE / "דיגיטלית-שיעורים 3-2-המהפכה הסלולרית-תשפו.pdf", 29),
+    ("lesson56-business-model", BASE / "דיגיטלית-שיעורים 6-5_הפרעת קשב מובנית-תשפו.pdf", 6),
 ]
 
 
 def render_slide(slug, pdf_path, page):
     prefix = OUT / slug
-    expected = OUT / f"{slug}-{page}.png"
     target = OUT / f"{slug}.png"
+    for stale in OUT.glob(f"{slug}-*.png"):
+        stale.unlink()
     subprocess.run(
         [
             str(POPPLER),
@@ -50,12 +64,9 @@ def render_slide(slug, pdf_path, page):
         ],
         check=True,
     )
-    if expected.exists():
-        expected.replace(target)
-    if not target.exists():
-        matches = list(OUT.glob(f"{slug}-*.png"))
-        if matches:
-            matches[0].replace(target)
+    matches = sorted(OUT.glob(f"{slug}-*.png"))
+    if matches:
+        matches[0].replace(target)
     print(target)
 
 
