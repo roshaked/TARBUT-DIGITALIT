@@ -16,12 +16,20 @@
   box-sizing: border-box;
 }
 
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
   background: var(--paper);
   color: var(--ink);
   font-family: Arial, "Noto Sans Hebrew", sans-serif;
+  overflow-x: hidden;
 }
 
 button,
@@ -37,6 +45,8 @@ button {
   display: grid;
   grid-template-columns: 280px minmax(0, 1fr);
   min-height: 100vh;
+  width: 100%;
+  max-width: 100vw;
 }
 
 .sidebar {
@@ -49,6 +59,7 @@ button {
   display: flex;
   flex-direction: column;
   gap: 28px;
+  max-width: 100vw;
 }
 
 .brand {
@@ -130,6 +141,8 @@ button {
 
 main {
   min-width: 0;
+  width: 100%;
+  max-width: 100vw;
   padding: 30px clamp(18px, 4vw, 52px) 56px;
 }
 
@@ -150,8 +163,11 @@ main {
 h1,
 h2,
 h3,
-p {
+p,
+button,
+a {
   margin-top: 0;
+  overflow-wrap: anywhere;
 }
 
 h1 {
@@ -221,6 +237,7 @@ h3 {
   border-radius: 8px;
   background: var(--surface);
   box-shadow: var(--shadow);
+  max-width: 100%;
 }
 
 .panel {
@@ -364,6 +381,7 @@ h3 {
 .english-chip {
   display: inline-flex;
   width: fit-content;
+  max-width: 100%;
   margin: 0 0 12px;
   padding: 6px 9px;
   border-radius: 8px;
@@ -513,12 +531,25 @@ h3 {
 
 @media (max-width: 900px) {
   .app-shell {
-    grid-template-columns: 1fr;
+    display: block;
+    width: 100%;
+    max-width: 100%;
   }
 
   .sidebar {
     position: static;
     height: auto;
+    width: 100%;
+    max-width: 100%;
+    gap: 18px;
+  }
+
+  .nav-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .progress-card {
+    margin-top: 0;
   }
 
   .topbar,
@@ -537,11 +568,85 @@ h3 {
 @media (max-width: 560px) {
   main,
   .sidebar {
-    padding: 18px;
+    padding: 14px;
+  }
+
+  main {
+    padding-bottom: 36px;
+  }
+
+  h1 {
+    font-size: 32px;
+    line-height: 1.12;
+  }
+
+  h2 {
+    font-size: 23px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  .brand-mark {
+    width: 42px;
+    height: 42px;
+    font-size: 21px;
+  }
+
+  .nav-list,
+  .flash-actions,
+  .unit-grid,
+  .flash-grid,
+  .practice-grid,
+  .english-term-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .panel,
+  .unit-header,
+  .quiz-card,
+  .flashcard,
+  .source-card {
+    padding: 16px;
+  }
+
+  .unit-body {
+    padding: 0 16px 16px;
+  }
+
+  .flashcard {
+    min-height: 0;
+    gap: 16px;
+  }
+
+  .slide-button,
+  .flashcard button,
+  .answer-button,
+  .nav-item,
+  .ghost-button {
+    min-height: 44px;
   }
 
   .stats-grid,
   .image-strip {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 380px) {
+  main,
+  .sidebar {
+    padding: 12px;
+  }
+
+  h1 {
+    font-size: 29px;
+  }
+
+  .search-box input,
+  .nav-item,
+  .answer-button {
+    padding-inline: 12px;
   }
 }

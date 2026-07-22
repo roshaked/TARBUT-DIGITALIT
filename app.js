@@ -1211,13 +1211,31 @@ function renderAll() {
   updateProgress();
 }
 
+function setActiveView(viewName, shouldUpdateHash = true) {
+  const targetView = views[viewName] ? viewName : "dashboard";
+  document.querySelectorAll(".nav-item").forEach((item) => {
+    item.classList.toggle("active", item.dataset.view === targetView);
+  });
+  document.querySelectorAll(".view").forEach((view) => view.classList.remove("active-view"));
+  views[targetView].classList.add("active-view");
+  if (shouldUpdateHash && window.location.hash.slice(1) !== targetView) {
+    window.history.replaceState(null, "", `#${targetView}`);
+  }
+  window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+}
+
 document.querySelectorAll(".nav-item").forEach((button) => {
   button.addEventListener("click", () => {
-    document.querySelectorAll(".nav-item").forEach((item) => item.classList.remove("active"));
-    document.querySelectorAll(".view").forEach((view) => view.classList.remove("active-view"));
-    button.classList.add("active");
-    views[button.dataset.view].classList.add("active-view");
+    setActiveView(button.dataset.view);
   });
+});
+
+window.addEventListener("hashchange", () => {
+  setActiveView(window.location.hash.slice(1), false);
+});
+
+window.addEventListener("load", () => {
+  window.setTimeout(() => window.scrollTo({ top: 0, left: 0, behavior: "auto" }), 0);
 });
 
 document.querySelector("#searchInput").addEventListener("input", (event) => {
@@ -1261,3 +1279,4 @@ document.querySelector("#resetProgress").addEventListener("click", () => {
 });
 
 renderAll();
+setActiveView(window.location.hash.slice(1) || "dashboard", false);
