@@ -199,7 +199,9 @@ h3 {
 .unit-grid,
 .flash-grid,
 .practice-grid,
-.coverage-grid {
+.coverage-grid,
+.exam-format-grid,
+.english-term-grid {
   display: grid;
   gap: 16px;
 }
@@ -367,6 +369,52 @@ h3 {
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
 
+.exam-format-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.exam-format-card,
+.english-term-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fbfcfd;
+  padding: 16px;
+}
+
+.exam-format-card span {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: var(--rose);
+  font-weight: 800;
+}
+
+.english-term-grid {
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  margin-top: 14px;
+}
+
+.english-term-card {
+  box-shadow: none;
+}
+
+.english-term-card strong {
+  display: block;
+  color: var(--blue);
+  margin-bottom: 6px;
+}
+
+.english-term-card span {
+  display: block;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.english-term-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
 .quiz-card {
   padding: 18px;
 }
@@ -461,7 +509,8 @@ h3 {
 
   .topbar,
   .hero-grid,
-  .coverage-grid {
+  .coverage-grid,
+  .exam-format-grid {
     grid-template-columns: 1fr;
   }
 
