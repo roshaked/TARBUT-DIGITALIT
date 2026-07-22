@@ -918,6 +918,79 @@ const englishTermDrill = [
   ["Bandwagon Heuristic", "היוריסטיקת העדר", "נטייה להאמין למידע כי רבים אחרים מאמינים בו."],
 ];
 
+const englishTermByFlashcard = {
+  "שינוי אונטולוגי": "Ontological Change",
+  "נוכחות רשת": "Web Presence",
+  "דטרמיניזם טכנולוגי": "Technological Determinism",
+  "הבניה חברתית של טכנולוגיה": "Social Construction of Technology",
+  "אקולוגיית מדיה": "Media Ecology",
+  "טכנולוגיה אינה נייטרלית": "Technology Is Not Neutral",
+  "ארכיטקטורת הסביבה": "Architecture of the Environment",
+  "מדיום כמצע תרבות": "Medium as the Substrate of Culture",
+  "טענה נורמטיבית": "Normative Claim",
+  "טענה תיאורית": "Descriptive Claim",
+  "מהפכה סלולרית": "Mobile Revolution",
+  "דורות סוציולוגיים": "Sociological Generations",
+  "דורות טכנולוגיים": "Technological Generations",
+  "דור X, דור Y, דור Z": "Generation X / Generation Y / Generation Z",
+  "ניידות וצמידות": "Portable / Prosthetic",
+  "ילידים דיגיטליים": "Digital Natives",
+  "מהגרים דיגיטליים": "Digital Immigrants",
+  "ילידים סלולריים": "Mobile Natives",
+  "חוויה מפוצלת": "Split Experience",
+  "התמכרות מול פיצוי בסלולר": "Addiction vs. Compensation",
+  "פוטנציאל תרפויטי של ניתוק": "Therapeutic Potential of Disconnection",
+  "פניקה מוסרית": "Moral Panic",
+  "פניקת מדיה": "Media Panic",
+  "פניקת סלולר": "Mobile Panic",
+  "אוטופיה טכנולוגית": "Technological Utopia",
+  "כלכלת תשומת הלב": "Attention Economy",
+  "מודל עסקי": "Business Model",
+  "המוצר הוא אנחנו": "We Are the Product",
+  Nudge: "Nudge",
+  "Time Well Spent": "Time Well Spent",
+  TLT: "Technology That Liberates us from Technology",
+  "גודמן - מוניטיזציה": "Monetization",
+  UGC: "User Generated Content",
+  "Web 2.0 - שני ממדים": "Web 2.0",
+  "שלושת רכיבי UGC": "User / Generated / Content",
+  "חכמת ההמון": "Wisdom of the Crowd",
+  "מיקור המון": "Crowdsourcing",
+  "מימון המון": "Crowdfunding",
+  "כלכלת שיתוף": "Sharing Economy",
+  "כלכלת שוק": "Market Economy",
+  "תרשים חוסיין בכלכלת שיתוף": "Hossain's Sharing Economy Framework",
+  "אפקט הרשת": "Network Effect",
+  "הזנב הארוך": "Long Tail",
+  "שטח מדף אינסופי": "Infinite Shelf Space",
+  "לגעת בריק ומוות באוורסט": "Touching the Void / Into Thin Air",
+  "ערך נישות מול להיטים": "Niche Products vs. Hits",
+  "סוכן הפעולה": "Agency",
+  CMC: "Computer Mediated Communication",
+  HCI: "Human-Computer Interaction",
+  "עקבות דיגיטליים": "Digital Traces",
+  "טביעת רגל דיגיטלית": "Digital Footprint",
+  "למידת מכונה": "Machine Learning",
+  "בינה מלאכותית": "Artificial Intelligence",
+  "AI כמשוחחת": "AI as Conversational Agent",
+  "AI כמתווכת": "AI as Mediator",
+  "AI כיוצרת תוכן": "AI as Content Creator",
+  "AI כאוצרת תוכן": "AI as Content Curator",
+  "צירי סאנדר ולי": "Sundar & Lee's Classification Axes",
+  "דיסאינפורמציה": "Disinformation",
+  "מיסאינפורמציה": "Misinformation",
+  "Fake News / חדשות כזב": "Fake News",
+  "חומת תשלום": "Paywall",
+  "מדד הדמוקרטיה ואמון בתקשורת": "Democracy Index / Trust in Media",
+  "מקרה הפנטגון 2023": "Pentagon Explosion Hoax, 2023",
+  "מקרה סלובקיה 2023": "Slovakia Election Deepfake, 2023",
+  "מגבלות AI באיתור דיסאינפורמציה": "Limitations of AI in Disinformation Detection",
+  "היוריסטיקת מכונה": "Machine Heuristic",
+  "היוריסטיקת העדר": "Bandwagon Heuristic",
+  "ניסוי באנס ושות׳": "Banas et al. Experiment",
+  "מסקנות באנס": "Banas et al. Conclusions",
+};
+
 const state = {
   progress: JSON.parse(localStorage.getItem("digitalCultureProgress") || "{}"),
   query: "",
@@ -1033,16 +1106,19 @@ function renderUnits() {
 
 function renderFlashcards() {
   const cards = state.query
-    ? flashcards.filter((card) => matchesQuery(`${card.term} ${card.answer} ${card.slideLabel}`))
+    ? flashcards.filter((card) => matchesQuery(`${card.term} ${englishTermByFlashcard[card.term] || ""} ${card.answer} ${card.slideLabel}`))
     : flashcards;
   views.flashcards.innerHTML = cards.length
     ? `<div class="flash-grid">${cards
         .map(
-          (card, index) => `
+          (card, index) => {
+            const englishTerm = englishTermByFlashcard[card.term];
+            return `
           <article class="flashcard">
             <div>
               <span class="tag">כרטיסיה ${index + 1}</span>
               <h3>${card.term}</h3>
+              ${englishTerm ? `<span class="english-chip" dir="ltr">${englishTerm}</span>` : ""}
               <p class="flash-answer">${card.answer}</p>
             </div>
             <div class="flash-actions">
@@ -1050,7 +1126,8 @@ function renderFlashcards() {
               <button data-reveal>הצגת תשובה</button>
             </div>
           </article>
-        `
+        `;
+          }
         )
         .join("")}</div>`
     : `<div class="empty">אין כרטיסיות שתואמות לחיפוש.</div>`;
